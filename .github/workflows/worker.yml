@@ -1,16 +1,38 @@
-name: Super-runner
+name: Cache prime
 
-on: push
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch: {}
 
 jobs:
-  run:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: 24f2004435@ds.study.iitm.ac.in
-        run: echo "me running"
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-    
-    
+      - name: Cache pip
+        id: pip-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: cache-e0f191e-${{ runner.os }}-py${{ steps.python-version.outputs.python-version || '3.11' }}
+          restore-keys: |
+            cache-e0f191e-${{ runner.os }}-
+            cache-e0f191e-
+
+      - name: Install deps (no-op ok)
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt || true
+
+      - name: prime-cache-e0f191e
+        run: |
+          echo "Cache primary key: cache-e0f191e-${{ runner.os }}-py${{ steps.python-version.outputs.python-version || '3.11' }}"
+          echo "Cache hit: ${{ steps.pip-cache.outputs.cache-hit }}"
