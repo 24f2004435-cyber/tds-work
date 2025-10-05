@@ -1,40 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome Page</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f6fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .welcome-container {
-            background: #fff;
-            padding: 40px 60px;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-        h1 {
-            color: #2d3436;
-            margin-bottom: 16px;
-        }
-        p {
-            color: #636e72;
-        }
+      body { font-family: system-ui, Arial, sans-serif; background:#f5f6fa; margin:0; }
+      .card { max-width: 680px; margin: 12vh auto; background:#fff; padding:36px 48px;
+              border-radius:12px; box-shadow:0 6px 24px rgba(0,0,0,.08); }
+      h1 { margin:0 0 10px; color:#2d3436; }
+      p  { margin:0 0 22px; color:#636e72; }
+      .email { font-size:1.05rem; }
     </style>
-</head>
-<body>
-    <div class="welcome-container">
-        <h1>Welcome!</h1>
-        <p>i made this page with the help of gtp..</p>
-        
-        <!--email_off-->24f2004435@ds.study.iitm.ac.in<!--/email_off-->
+  </head>
+  <body>
+    <main class="card">
+      <h1>Welcome!</h1>
+      <p>i made this page with the help of gtp..</p>
 
-    </div>
-</body>
+      <!-- Prevent Cloudflare email obfuscation -->
+      <p class="email">
+        <!--email_off-->
+        <a href="mailto:24f2004435@ds.study.iitm.ac.in">24f2004435@ds.study.iitm.ac.in</a>
+        <!--/email_off-->
+      </p>
+    </main>
+  </body>
 </html>
