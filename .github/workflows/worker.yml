@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: 24f2004435@ds.study.iitm.ac.in
         uses: actions/checkout@v4
 
       - name: Set up Python
